@@ -1,7 +1,9 @@
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://dl.bintray.com/conan/installers/conan-win-32_1_18_2.exe'
-$url64      = 'https://dl.bintray.com/conan/installers/conan-win-64_1_18_2.exe'
+$url        = 'https://dl.bintray.com/conan/installers/conan-win-32_1_18_4.exe'
+$url64      = 'https://dl.bintray.com/conan/installers/conan-win-64_1_18_4.exe'
+
+# https://hash.online-convert.com/sha256-generator
 
 $packageArgs = @{
   packageName    = 'Conan'
@@ -9,9 +11,9 @@ $packageArgs = @{
   url            = $url
   url64bit       = $url64
   softwareName   = 'Conan'
-  checksum       = '8616D2AB70B3E5A9C5033BC43F6630E4142816A28A64CC695045FA82DDDEA6FC'
+  checksum       = 'C799706319A6441DE572E7F2AC7A979E805E94C9902A84202DB5CA19868F35CE'
   checksumType   = 'sha256'
-  checksum64     = '2CA9A88A01AC2202390BEBC9EFC60D70B9F09204066515FD94A6C51DD3C0350D'
+  checksum64     = '46EF25AE5E053227389FCD42EE8F2B35A088252E25641E244EE16DA06CAA1307'
   checksumType64 = 'sha256'
   silentArgs     = '/VERYSILENT'
 }

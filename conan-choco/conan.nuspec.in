@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>conan</id>
+    <version>@CONAN_VERSION@</version>
+    <title>Conan</title>
+    <projectUrl>https://conan.io/</projectUrl>
+    <copyright>Copyright (c) 2019 JFrog LTD</copyright>
+    <licenseUrl>https://github.com/conan-io/conan/blob/develop/LICENSE.md</licenseUrl>
+    <authors>JFrog LTD</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <iconUrl>https://i.imgur.com/vIMlSzk.png</iconUrl>
+    <projectSourceUrl>https://github.com/conan-io/conan</projectSourceUrl>
+    <owners>AnotherFoxGuy</owners>
+    <docsUrl>https://docs.conan.io/</docsUrl>
+    <tags>conan package-manager cpp c cplusplus multi-platform cmake</tags>
+    <summary>Conan.io - The open-source C/C++ package manager</summary>
+    <description>An open source, decentralized package manager, to automate building and sharing of packages</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools"/>
+  </files>
+</package>

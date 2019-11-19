@@ -1,6 +1,29 @@
 set(TMP "$ENV{TMP}")
+set(CMCM_MODULE_DIR "${TMP}/CMCM_MODULE_DIR")
 
-set(CONAN_VERSION "1.20.3")
+file(DOWNLOAD "https://anotherfoxguy.com/CMakeCM/CMakeCM.cmake" "${TMP}/CMakeCM.cmake")
+
+include("${TMP}/CMakeCM.cmake")
+
+include(JSONParser)
+
+file(DOWNLOAD "https://api.github.com/repos/conan-io/conan/releases/latest" "${TMP}/conan-releases.json")
+file(READ "${TMP}/conan-releases.json" ConanReleasesJSON)
+
+sbeParseJson(ConanReleases ConanReleasesJSON)
+
+# debug
+# foreach(var ${ConanReleases})
+#     message("${var} = ${${var}}")
+# endforeach()
+
+set(CONAN_VERSION "${ConanReleases.tag_name}")
+
+sbeClearJson(ConanReleases)
+
+message("Latest version ${CONAN_VERSION}")
+
+
 string(REPLACE "." "_" CONAN_VERSION_UNDERSCORE ${CONAN_VERSION})
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")

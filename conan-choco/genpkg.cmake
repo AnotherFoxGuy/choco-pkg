@@ -43,9 +43,18 @@ file(SHA256 "${TMP}/${CONAN_INSTALLER_64}" htmp32)
 string(TOUPPER ${htmp64} CONAN_HASH_32)
 string(TOUPPER ${htmp32} CONAN_HASH_64)
 
-configure_file(conan.nuspec.in              "${OUT_DIR}/conan.nuspec")
-configure_file(chocolateyinstall.ps1.in     "${OUT_DIR}/tools/chocolateyinstall.ps1")
-configure_file(chocolateyuninstall.ps1.in   "${OUT_DIR}/tools/chocolateyuninstall.ps1")
+configure_file(conan.nuspec.in "${OUT_DIR}/conan.nuspec")
+configure_file(chocolateyinstall.ps1.in "${OUT_DIR}/tools/chocolateyinstall.ps1")
+configure_file(chocolateyuninstall.ps1.in "${OUT_DIR}/tools/chocolateyuninstall.ps1")
 
 message("Running 'choco pack conan.nuspec'")
-execute_process(COMMAND choco pack conan.nuspec WORKING_DIRECTORY "${OUT_DIR}") 
+execute_process(COMMAND choco pack conan.nuspec WORKING_DIRECTORY "${OUT_DIR}")
+
+
+if (EXISTS APIKEY.txt)
+    file(READ APIKEY.txt APIKEY)
+    message("Uploading Release")
+    file(UPLOAD "${OUT_DIR}/conan.${CONAN_VERSION}.nupkg"
+            "https://api.bintray.com/content/anotherfoxguy/choco-pkg/conan/${CONAN_VERSION}/conan.${CONAN_VERSION}.nupkg"
+            USERPWD ${APIKEY} SHOW_PROGRESS)
+endif ()

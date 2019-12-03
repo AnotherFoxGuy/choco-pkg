@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/conan-io/conan/blob/develop/LICENSE.md</licenseUrl>
     <authors>JFrog LTD</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <iconUrl>https://i.imgur.com/vIMlSzk.png</iconUrl>
+    <iconUrl>https://cdn.statically.io/gh/AnotherFoxGuy/choco-pkg/490d4f8b/conan-choco/icon.png</iconUrl>
     <projectSourceUrl>https://github.com/conan-io/conan</projectSourceUrl>
     <owners>AnotherFoxGuy</owners>
     <docsUrl>https://docs.conan.io/</docsUrl>

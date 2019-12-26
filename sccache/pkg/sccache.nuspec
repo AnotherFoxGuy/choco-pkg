@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>sccache</id>
+    <version>0.2.12</version>
+    <title>sccache</title>
+    <projectUrl>https://github.com/mozilla/sccache</projectUrl>
+    <licenseUrl>https://github.com/mozilla/sccache/blob/master/LICENSE</licenseUrl>
+    <authors>Mozilla</authors>
+    <owners>AnotherFoxGuy</owners>
+    <docsUrl>https://github.com/mozilla/sccache/blob/master/README.md</docsUrl>
+    <tags>sccache ccache cpp c cplusplus multi-platform compilation cache</tags>
+    <summary>sccache is ccache with cloud storage </summary>
+    <description>Sccache is a ccache-like tool. It is used as a compiler wrapper and avoids compilation when possible, storing a cache in a remote storage using the Amazon Simple Cloud Storage Service (S3) API, the Google Cloud Storage (GCS) API, or Redis.</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools"/>
+  </files>
+</package>

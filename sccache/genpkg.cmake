@@ -43,3 +43,12 @@ configure_file(chocolateyinstall.ps1.in "${OUT_DIR}/tools/chocolateyinstall.ps1"
 
 message("Running 'choco pack sccache.nuspec'")
 execute_process(COMMAND choco pack sccache.nuspec WORKING_DIRECTORY "${OUT_DIR}")
+
+
+if (EXISTS "../APIKEY.txt")
+    file(READ "../APIKEY.txt" APIKEY)
+    message("Uploading Release")
+    file(UPLOAD "${OUT_DIR}/sccache.${SCCACHE_VERSION}.nupkg"
+            "https://api.bintray.com/content/anotherfoxguy/choco-pkg/sccache/${SCCACHE_VERSION}/sccache.${SCCACHE_VERSION}.nupkg"
+            USERPWD ${APIKEY} SHOW_PROGRESS)
+endif ()

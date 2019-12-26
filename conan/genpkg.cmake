@@ -51,8 +51,8 @@ message("Running 'choco pack conan.nuspec'")
 execute_process(COMMAND choco pack conan.nuspec WORKING_DIRECTORY "${OUT_DIR}")
 
 
-if (EXISTS APIKEY.txt)
-    file(READ APIKEY.txt APIKEY)
+if (EXISTS "../APIKEY.txt")
+    file(READ "../APIKEY.txt" APIKEY)
     message("Uploading Release")
     file(UPLOAD "${OUT_DIR}/conan.${CONAN_VERSION}.nupkg"
             "https://api.bintray.com/content/anotherfoxguy/choco-pkg/conan/${CONAN_VERSION}/conan.${CONAN_VERSION}.nupkg"

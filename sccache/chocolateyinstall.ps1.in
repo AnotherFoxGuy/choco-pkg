@@ -1,0 +1,8 @@
+# Install script for sccache V@SCCACHE_VERSION@
+
+$ErrorActionPreference = 'Stop';
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+
+Get-ChocolateyWebFile -PackageName 'sccache'  -FileFullPath "$toolsDir\@SCCACHE_ZIP@" -Url '@SCCACHE_URL@'
+Get-ChocolateyUnzip -FileFullPath "$toolsDir\@SCCACHE_ZIP@" -Destination $toolsDir
+Install-ChocolateyZipPackage -PackageName 'sccache' -File "$toolsDir\@SCCACHE_FOLDER@.tar" -UnzipLocation $toolsDir

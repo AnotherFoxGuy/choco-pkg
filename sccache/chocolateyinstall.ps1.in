@@ -3,6 +3,6 @@
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-Get-ChocolateyWebFile -PackageName 'sccache'  -FileFullPath "$toolsDir\@SCCACHE_ZIP@" -Url '@SCCACHE_URL@'
+Get-ChocolateyWebFile -PackageName 'sccache' -FileFullPath "$toolsDir\@SCCACHE_ZIP@" -Url '@SCCACHE_URL@' -Checksum '@SCCACHE_HASH@' -ChecksumType 'sha256'
 Get-ChocolateyUnzip -FileFullPath "$toolsDir\@SCCACHE_ZIP@" -Destination $toolsDir
-Install-ChocolateyZipPackage -PackageName 'sccache' -File "$toolsDir\@SCCACHE_FOLDER@.tar" -UnzipLocation $toolsDir
+Get-ChocolateyUnzip -PackageName 'sccache' -FileFullPath "$toolsDir\@SCCACHE_FOLDER@.tar" -Destination $toolsDir

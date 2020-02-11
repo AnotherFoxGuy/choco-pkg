@@ -1,10 +1,10 @@
-# Install script for conan V1.22.0
+# Install script for conan V1.22.1
 
 
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://dl.bintray.com/conan/installers/conan-win-32_1_22_0.exe'
-$url64      = 'https://dl.bintray.com/conan/installers/conan-win-64_1_22_0.exe'
+$url        = 'https://dl.bintray.com/conan/installers/conan-win-32_1_22_1.exe'
+$url64      = 'https://dl.bintray.com/conan/installers/conan-win-64_1_22_1.exe'
 
 $packageArgs = @{
   packageName    = 'Conan'
@@ -12,9 +12,9 @@ $packageArgs = @{
   url            = $url
   url64bit       = $url64
   softwareName   = 'Conan'
-  checksum       = '86F074A63DE427FA25ECCE43FD27C3FE251710DBE1F28813F19CFDF4E18B7B2E'
+  checksum       = '7706B08D296F9623098F1FDACB84D1AE16DF8012064006C59CE6FC7772A689BB'
   checksumType   = 'sha256'
-  checksum64     = '16FAB95B98485CFA226D9F87F77ADB5411073E4D298219C3704D6E457E60B6FD'
+  checksum64     = 'C722E5DA8653E741AB245B18F40AEE84DB0D805E55DD68B12FF12753F0AF4D8F'
   checksumType64 = 'sha256'
   silentArgs     = '/VERYSILENT'
 }

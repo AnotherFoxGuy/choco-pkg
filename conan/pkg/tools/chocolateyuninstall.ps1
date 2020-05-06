@@ -1,4 +1,4 @@
-# Uninstall script for conan V1.24.1
+# Uninstall script for conan V1.25.0
 
 $ErrorActionPreference = 'Stop';
 $packageArgs = @{

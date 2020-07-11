@@ -1,0 +1,9 @@
+# Install script for butler V@BUTLER_VERSION@
+
+$ErrorActionPreference = 'Stop';
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+
+Install-ChocolateyZipPackage -PackageName 'butler' `
+    -Url '@BUTLER_URL@' `
+    -UnzipLocation "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)" `
+    -Checksum '@BUTLER_HASH@' -ChecksumType 'sha256'

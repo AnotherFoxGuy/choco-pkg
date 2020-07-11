@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>butler</id>
+    <version>@BUTLER_VERSION@</version>
+    <title>butler</title>
+    <projectUrl>https://github.com/itchio/butler</projectUrl>
+    <licenseUrl>https://github.com/itchio/butler/blob/master/LICENSE</licenseUrl>
+    <docsUrl>https://github.com/itchio/butler/blob/master/README.md</docsUrl>
+    <authors>itch.io</authors>
+    <owners>AnotherFoxGuy</owners>
+    <packageSourceUrl>https://github.com/AnotherFoxGuy/choco-pkg</packageSourceUrl>
+    <tags>butler</tags>
+    <summary>butler is ccache with cloud storage</summary>
+    <description>butler is the itch.io command-line tools for uploading games to itch.io</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools"/>
+  </files>
+</package>

@@ -5,6 +5,7 @@
     <version>15.18.0</version>
     <title>butler</title>
     <projectUrl>https://github.com/itchio/butler</projectUrl>
+    <iconUrl>https://static.itch.io/images/app-icon.png</iconUrl>
     <licenseUrl>https://github.com/itchio/butler/blob/master/LICENSE</licenseUrl>
     <docsUrl>https://github.com/itchio/butler/blob/master/README.md</docsUrl>
     <authors>itch.io</authors>

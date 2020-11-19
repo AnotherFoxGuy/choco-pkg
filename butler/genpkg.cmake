@@ -1,29 +1,7 @@
-set(TMP "$ENV{TMP}")
-set(CMCM_MODULE_DIR "${TMP}/CMCM_MODULE_DIR")
-
-file(DOWNLOAD "https://anotherfoxguy.com/CMakeCM/CMakeCM.cmake" "${TMP}/CMakeCM.cmake")
-
-include("${TMP}/CMakeCM.cmake")
-
-include(JSONParser)
-
-file(DOWNLOAD "https://api.github.com/repos/itchio/butler/tags" "${TMP}/butler-releases.json")
-file(READ "${TMP}/butler-releases.json" ButlerReleasesJSON)
-
-sbeParseJson(ButlerReleases ButlerReleasesJSON)
-
-# debug
-# foreach(var ${ButlerReleases})
-#     message("${var} = ${${var}}")
-# endforeach()
-
-string(REPLACE "v" "" BUTLER_VERSION ${ButlerReleases_0.name})
-
-sbeClearJson(ButlerReleases)
+execute_process(COMMAND curl -s -L https://api.github.com/repos/itchio/butler/tags OUTPUT_VARIABLE VERSION_JSON)
+string(JSON BUTLER_VERSION GET ${VERSION_JSON} 0 name)
 
 message("Latest version ${BUTLER_VERSION}")
-
-string(REPLACE "." "_" BUTLER_VERSION_UNDERSCORE ${BUTLER_VERSION})
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 

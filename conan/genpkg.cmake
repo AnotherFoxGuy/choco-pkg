@@ -1,35 +1,11 @@
-set(TMP "$ENV{TMP}")
-set(CMCM_MODULE_DIR "${TMP}/CMCM_MODULE_DIR")
+include("../get_latest_version.cmake")
 
-file(DOWNLOAD "https://anotherfoxguy.com/CMakeCM/CMakeCM.cmake" "${TMP}/CMakeCM.cmake")
-
-include("${TMP}/CMakeCM.cmake")
-
-include(JSONParser)
-
-file(DOWNLOAD "https://api.github.com/repos/conan-io/conan/releases/latest" "${TMP}/conan-releases.json")
-file(READ "${TMP}/conan-releases.json" ConanReleasesJSON)
-
-sbeParseJson(ConanReleases ConanReleasesJSON)
-
-# debug
-# foreach(var ${ConanReleases})
-#     message("${var} = ${${var}}")
-# endforeach()
-
-set(CONAN_VERSION "${ConanReleases.tag_name}")
-
-sbeClearJson(ConanReleases)
-
-message("Latest version ${CONAN_VERSION}")
-
-
-string(REPLACE "." "_" CONAN_VERSION_UNDERSCORE ${CONAN_VERSION})
+get_latest_version("conan-io/conan")
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 
-set(CONAN_INSTALLER_32 "conan-win-32_${CONAN_VERSION_UNDERSCORE}.exe")
-set(CONAN_INSTALLER_64 "conan-win-64_${CONAN_VERSION_UNDERSCORE}.exe")
+set(CONAN_INSTALLER_32 "conan-win-32_${VERSION_UNDERSCORE}.exe")
+set(CONAN_INSTALLER_64 "conan-win-64_${VERSION_UNDERSCORE}.exe")
 
 message("Starting download...")
 set(CONAN_URL_32 "https://dl.bintray.com/conan/installers/${CONAN_INSTALLER_32}")
@@ -54,7 +30,7 @@ execute_process(COMMAND choco pack conan.nuspec WORKING_DIRECTORY "${OUT_DIR}")
 if (EXISTS "../APIKEY.txt")
     file(READ "../APIKEY.txt" APIKEY)
     message("Uploading Release")
-    file(UPLOAD "${OUT_DIR}/conan.${CONAN_VERSION}.nupkg"
-            "https://api.bintray.com/content/anotherfoxguy/choco-pkg/conan/${CONAN_VERSION}/conan.${CONAN_VERSION}.nupkg"
+    file(UPLOAD "${OUT_DIR}/conan.${VERSION}.nupkg"
+            "https://api.bintray.com/content/anotherfoxguy/choco-pkg/conan/${VERSION}/conan.${VERSION}.nupkg"
             USERPWD ${APIKEY} SHOW_PROGRESS)
 endif ()

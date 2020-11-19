@@ -1,37 +1,17 @@
-set(TMP "$ENV{TMP}")
-set(CMCM_MODULE_DIR "${TMP}/CMCM_MODULE_DIR")
 
-file(DOWNLOAD "https://anotherfoxguy.com/CMakeCM/CMakeCM.cmake" "${TMP}/CMakeCM.cmake")
+include("../get_latest_version.cmake")
 
-include("${TMP}/CMakeCM.cmake")
+get_latest_version("mozilla/sccache")
 
-include(JSONParser)
-
-file(DOWNLOAD "https://api.github.com/repos/mozilla/sccache/releases/latest" "${TMP}/sccache-releases.json")
-file(READ "${TMP}/sccache-releases.json" ConanReleasesJSON)
-
-sbeParseJson(ConanReleases ConanReleasesJSON)
-
-# debug
-# foreach(var ${ConanReleases})
-#     message("${var} = ${${var}}") sccache
-# endforeach()
-
-set(SCCACHE_VERSION "${ConanReleases.tag_name}")
-
-sbeClearJson(ConanReleases)
-
-message("Latest version ${SCCACHE_VERSION}")
-
-string(REPLACE "." "_" SCCACHE_VERSION_UNDERSCORE ${SCCACHE_VERSION})
+message("Latest version ${VERSION}")
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 
-set(SCCACHE_FOLDER "sccache-${SCCACHE_VERSION}-x86_64-pc-windows-msvc")
+set(SCCACHE_FOLDER "sccache-${VERSION}-x86_64-pc-windows-msvc")
 set(SCCACHE_ZIP "${SCCACHE_FOLDER}.tar.gz")
 
 message("Starting download...")
-set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/${SCCACHE_VERSION}/${SCCACHE_ZIP}")
+set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/${VERSION}/${SCCACHE_ZIP}")
 
 file(DOWNLOAD "${SCCACHE_URL}" "${TMP}/${SCCACHE_ZIP}" SHOW_PROGRESS)
 

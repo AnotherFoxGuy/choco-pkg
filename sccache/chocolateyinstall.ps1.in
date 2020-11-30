@@ -1,4 +1,4 @@
-# Install script for sccache V@SCCACHE_VERSION@
+# Install script for sccache V@VERSION@
 
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"

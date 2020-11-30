@@ -1,4 +1,4 @@
-# Install script for conan V@CONAN_VERSION@
+# Install script for conan V@VERSION@
 
 
 $ErrorActionPreference = 'Stop';

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>sccache</id>
-    <version>@SCCACHE_VERSION@</version>
+    <version>@VERSION@</version>
     <title>sccache</title>
     <projectUrl>https://github.com/mozilla/sccache</projectUrl>
     <licenseUrl>https://github.com/mozilla/sccache/blob/master/LICENSE</licenseUrl>

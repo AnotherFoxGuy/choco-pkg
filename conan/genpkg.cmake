@@ -11,11 +11,11 @@ message("Starting download...")
 set(CONAN_URL_32 "https://dl.bintray.com/conan/installers/${CONAN_INSTALLER_32}")
 set(CONAN_URL_64 "https://dl.bintray.com/conan/installers/${CONAN_INSTALLER_64}")
 
-file(DOWNLOAD "${CONAN_URL_32}" "${TMP}/${CONAN_INSTALLER_32}" SHOW_PROGRESS)
-file(DOWNLOAD "${CONAN_URL_64}" "${TMP}/${CONAN_INSTALLER_64}" SHOW_PROGRESS)
+file(DOWNLOAD "${CONAN_URL_32}" "$ENV{TMP}/${CONAN_INSTALLER_32}" SHOW_PROGRESS)
+file(DOWNLOAD "${CONAN_URL_64}" "$ENV{TMP}/${CONAN_INSTALLER_64}" SHOW_PROGRESS)
 
-file(SHA256 "${TMP}/${CONAN_INSTALLER_32}" htmp64)
-file(SHA256 "${TMP}/${CONAN_INSTALLER_64}" htmp32)
+file(SHA256 "$ENV{TMP}/${CONAN_INSTALLER_32}" htmp64)
+file(SHA256 "$ENV{TMP}/${CONAN_INSTALLER_64}" htmp32)
 string(TOUPPER ${htmp64} CONAN_HASH_32)
 string(TOUPPER ${htmp32} CONAN_HASH_64)
 

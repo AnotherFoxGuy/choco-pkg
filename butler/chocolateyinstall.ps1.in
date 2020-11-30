@@ -1,4 +1,4 @@
-# Install script for butler V@BUTLER_VERSION@
+# Install script for butler V@VERSION@
 
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"

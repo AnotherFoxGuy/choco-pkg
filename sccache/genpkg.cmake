@@ -13,9 +13,9 @@ set(SCCACHE_ZIP "${SCCACHE_FOLDER}.tar.gz")
 message("Starting download...")
 set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/${VERSION}/${SCCACHE_ZIP}")
 
-file(DOWNLOAD "${SCCACHE_URL}" "${TMP}/${SCCACHE_ZIP}" SHOW_PROGRESS)
+file(DOWNLOAD "${SCCACHE_URL}" "$ENV{TMP}/${SCCACHE_ZIP}" SHOW_PROGRESS)
 
-file(SHA256 "${TMP}/${SCCACHE_ZIP}" htmp)
+file(SHA256 "$ENV{TMP}/${SCCACHE_ZIP}" htmp)
 string(TOUPPER ${htmp} SCCACHE_HASH)
 
 configure_file(sccache.nuspec.in "${OUT_DIR}/sccache.nuspec")

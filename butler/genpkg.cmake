@@ -1,5 +1,7 @@
 execute_process(COMMAND curl -s -L https://api.github.com/repos/itchio/butler/tags OUTPUT_VARIABLE VERSION_JSON)
-string(JSON VERSION GET ${VERSION_JSON} 0 name)
+string(JSON VERSION_DIRTY GET ${VERSION_JSON} 0 name)
+
+string(REGEX REPLACE [^0-9\\.] "" VERSION "${VERSION_DIRTY}")
 
 message("Latest version ${VERSION}")
 

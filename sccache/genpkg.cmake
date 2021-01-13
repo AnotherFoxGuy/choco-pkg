@@ -6,12 +6,11 @@ get_latest_version("mozilla/sccache")
 message("Latest version ${VERSION}")
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
-
-set(SCCACHE_FOLDER "sccache-${VERSION}-x86_64-pc-windows-msvc")
+set(SCCACHE_FOLDER "sccache-v${VERSION}-x86_64-pc-windows-msvc")
 set(SCCACHE_ZIP "${SCCACHE_FOLDER}.tar.gz")
 
 message("Starting download...")
-set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/${VERSION}/${SCCACHE_ZIP}")
+set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/v${VERSION}/${SCCACHE_ZIP}")
 
 file(DOWNLOAD "${SCCACHE_URL}" "$ENV{TMP}/${SCCACHE_ZIP}" SHOW_PROGRESS)
 

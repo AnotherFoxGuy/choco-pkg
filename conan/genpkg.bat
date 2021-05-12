@@ -1,1 +1,0 @@
-cmake -P genpkg.cmake

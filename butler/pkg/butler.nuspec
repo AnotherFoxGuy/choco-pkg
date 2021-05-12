@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>butler</id>
-    <version>15.20.0</version>
+    <version>15.21.0</version>
     <title>butler</title>
     <projectUrl>https://github.com/itchio/butler</projectUrl>
     <iconUrl>https://static.itch.io/images/app-icon.png</iconUrl>

@@ -7,7 +7,7 @@ message("Latest version ${VERSION}")
 
 set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 set(SCCACHE_FOLDER "sccache-v${VERSION}-x86_64-pc-windows-msvc")
-set(SCCACHE_ZIP "${SCCACHE_FOLDER}.tar.gz")
+set(SCCACHE_ZIP "${SCCACHE_FOLDER}.zip")
 
 message("Starting download...")
 set(SCCACHE_URL "https://github.com/mozilla/sccache/releases/download/v${VERSION}/${SCCACHE_ZIP}")

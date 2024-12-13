@@ -10,7 +10,7 @@ set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 set(BUTLER_ZIP "butler.zip")
 
 message("Starting download...")
-set(BUTLER_URL "https://broth.itch.ovh/butler/windows-amd64/${VERSION}/archive/default#/latest.zip")
+set(BUTLER_URL "https://broth.itch.zone/butler/windows-amd64/${VERSION}/archive/default#/latest.zip")
 
 file(DOWNLOAD "${BUTLER_URL}" "$ENV{TMP}/${BUTLER_ZIP}" SHOW_PROGRESS)
 

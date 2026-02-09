@@ -1,9 +1,9 @@
-# Install script for butler V15.24.0
+# Install script for butler V15.25.0
 
 $ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 Install-ChocolateyZipPackage -PackageName 'butler' `
-    -Url 'https://broth.itch.zone/butler/windows-amd64/15.24.0/archive/default#/latest.zip' `
+    -Url 'https://broth.itch.zone/butler/windows-amd64/15.25.0/archive/default#/latest.zip' `
     -UnzipLocation "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)" `
-    -Checksum '03DDB047B62BF40319897EF539853D2F08EA2636002EED0E245C4A5668268240' -ChecksumType 'sha256'
+    -Checksum '41082BB86E5826264F8122222CBDF59235264278C4A0C1C6881F9007A8B132C3' -ChecksumType 'sha256'

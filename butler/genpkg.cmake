@@ -1,11 +1,14 @@
-execute_process(COMMAND curl -s -L https://api.github.com/repos/itchio/butler/tags OUTPUT_VARIABLE VERSION_JSON)
-string(JSON VERSION_DIRTY GET ${VERSION_JSON} 0 name)
+set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
+file(GLOB NUPKG_FILES "${OUT_DIR}/*.nupkg")
 
-string(REGEX REPLACE [^0-9\\.] "" VERSION "${VERSION_DIRTY}")
+message("Deleting ${NUPKG_FILES}")
+file(REMOVE "${NUPKG_FILES}")
+
+include("../get_latest_version.cmake")
+
+get_latest_version("itchio/butler")
 
 message("Latest version ${VERSION}")
-
-set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
 
 set(BUTLER_ZIP "butler.zip")
 

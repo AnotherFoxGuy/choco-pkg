@@ -1,3 +1,8 @@
+set(OUT_DIR "${CMAKE_SOURCE_DIR}/pkg")
+file(GLOB NUPKG_FILES "${OUT_DIR}/*.nupkg")
+
+message("Deleting ${NUPKG_FILES}")
+file(REMOVE "${NUPKG_FILES}")
 
 include("../get_latest_version.cmake")
 

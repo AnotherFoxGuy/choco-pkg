@@ -12,7 +12,7 @@
     <owners>AnotherFoxGuy</owners>
     <packageSourceUrl>https://github.com/AnotherFoxGuy/choco-pkg</packageSourceUrl>
     <tags>butler</tags>
-    <summary>butler is ccache with cloud storage</summary>
+    <summary>butler is the itch.io command-line tools for uploading games to itch.io</summary>
     <description>butler is the itch.io command-line tools for uploading games to itch.io</description>
   </metadata>
   <files>
